@@ -9,6 +9,7 @@ def distance_checker(code1,code2):
     return(distance)
 
 #global variables
+similiarities = 0
 overall_distance = 0
 list_main = []
 codelist1 = []
@@ -42,5 +43,13 @@ for i in range (len(codelist1)):
 for i in range (len(codelist1)):
     distance_add = distance_checker(codelist1[i],codelist2[i])
     overall_distance = overall_distance + distance_add
+
+#part 2 - finding similiarities
+for i in range (len(codelist1)):
+    if codelist1[i] in codelist2:
+        multiply_by_number = codelist2.count(codelist1[i])
+        similiarities += (multiply_by_number * codelist1[i])
+    
     
 print("the overall distance is",overall_distance)
+print("The added similiarities are",similiarities)
